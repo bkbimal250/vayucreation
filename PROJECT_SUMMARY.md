@@ -12,7 +12,7 @@ A complete, production-ready, fully responsive website for **Vayu creations**, a
    - Hero section with call-to-action
    - About preview section
    - Services showcase (6 services)
-   - Statistics counter (2000+ projects, 15 years experience)
+   - Statistics counter (2000+ projects, 9 years experience)
    - Client testimonials carousel
    - FAQ accordion (20 questions)
    - Contact form with business hours
@@ -47,7 +47,7 @@ A complete, production-ready, fully responsive website for **Vayu creations**, a
    - Newsletter subscription
    - Category browse section
 
-### 🎨 Components Created (15+ Components)
+### 🎨 Components Created (9 Components)
 
 **Common Components:**
 - Header (with responsive navigation)
@@ -133,7 +133,7 @@ frontend/
 ├── src/
 │   ├── assets/
 │   ├── common/           (Header, Footer)
-│   ├── components/       (15+ reusable components)
+│   ├── components/       (9 reusable components)
 │   │   └── Homefiles/   (7 home sections)
 │   ├── data/            (6 data files)
 │   ├── pages/           (5 pages)
@@ -202,7 +202,7 @@ npm run build    # Creates optimized production build
 
 - **Total Files Created:** 35+ files
 - **Total Lines of Code:** 3000+ lines
-- **Components:** 15+ reusable components
+- **Components:** 9 reusable components
 - **Pages:** 5 complete pages
 - **Data Entries:** 50+ (services, blogs, projects, FAQs, testimonials)
 - **Responsive Breakpoints:** 3 (mobile, tablet, desktop)

@@ -104,7 +104,7 @@ const ServiceDetail = () => {
                     to ensure your signage stands out and lasts for years.
                   </p>
                   <p className="text-lg leading-relaxed mb-4">
-                    With over 15 years of experience in the signage industry, we understand what works 
+                    With over 9 years of experience in the signage industry, we understand what works 
                     best for different business types and locations. Our expert team will guide you 
                     through the entire process, from design to installation.
                   </p>
@@ -214,18 +214,18 @@ const ServiceDetail = () => {
                 
                 <div className="space-y-4">
                   <a
-                    href="tel:+919876543210"
+                    href="tel:+91797794669"
                     className="flex items-center gap-3 bg-white text-primary rounded-lg p-4 hover:bg-gray-50 transition-colors"
                   >
                     <FaPhone className="text-xl" />
                     <div>
                       <div className="text-sm opacity-75">Call Us Now</div>
-                      <div className="font-semibold">+91 98765 43210</div>
+                      <div className="font-semibold">+91 797794669</div>
                     </div>
                   </a>
 
                   <a
-                    href="https://wa.me/919876543210"
+                    href="https://wa.me/91797794669"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 bg-green-500 text-white rounded-lg p-4 hover:bg-green-600 transition-colors"
@@ -248,7 +248,7 @@ const ServiceDetail = () => {
                 <div className="mt-6 pt-6 border-t border-white/20">
                   <div className="text-sm opacity-90 mb-2">⚡ Quick Response</div>
                   <div className="text-sm opacity-90">📞 Free Consultation</div>
-                  <div className="text-sm opacity-90">✅ 7 Days Delivery</div>
+                  <div className="text-sm opacity-90"></div>
                 </div>
               </div>
             </div>

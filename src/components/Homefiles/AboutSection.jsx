@@ -21,7 +21,7 @@ const AboutSection = () => {
             Leverage your Brand Image with Our LED Displays
           </h2>
           <p className="section-subtitle max-w-3xl mx-auto">
-            Backed with 15+ years of experience in the industry, Vayu creations is a leader in providing 
+            Backed with 9 years of experience in the industry, Vayu creations is a leader in providing 
             end-to-end LED signboard solutions for every business. We analyze your needs and provide 
             modern and attractive digital sign boards to intrigue customers.
           </p>
@@ -36,7 +36,7 @@ const AboutSection = () => {
               className="rounded-2xl shadow-xl w-full"
             />
             <div className="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-xl shadow-xl">
-              <div className="text-3xl font-bold">15+</div>
+              <div className="text-3xl font-bold">9</div>
               <div className="text-sm font-medium">Years Experience</div>
             </div>
           </div>

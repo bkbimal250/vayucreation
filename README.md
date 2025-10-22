@@ -216,7 +216,7 @@ VITE_CONTACT_EMAIL=your_email@example.com
 | `md` | 768px | Medium devices |
 | `lg` | 1024px | Large devices |
 | `xl` | 1280px | Extra large devices |
-| `2xl` | 1536px | 2X Extra large |
+| `2xl` | 936px | 2X Extra large |
 
 ## 🌐 Browser Support
 
@@ -275,7 +275,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-For support, email info@vardansigns.com or open an issue in the repository.
+For support, email vayucreation2025@gmail.com or open an issue in the repository.
 
 ---
 

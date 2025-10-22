@@ -16,7 +16,6 @@ const Footer = () => {
     '2D Signage',
     'LED Displays',
     'Event Signage',
-    'Bill Boards',
     'Neon Signage'
   ];
 
@@ -105,16 +104,16 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <FaMapMarkerAlt className="text-primary mt-1 flex-shrink-0" />
                 <span className="text-gray-400">
-                  No. 123, Industrial Area, Navi Mumbai - Thane, Mumbai - 560001
+                  Darave Vill.,  Nerul East,  Sec.23, Navi Mumbai - Thane, Mumbai - 400706
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <FaPhone className="text-primary flex-shrink-0" />
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+91797794669"
                   className="text-gray-400 hover:text-primary transition-colors"
                 >
-                  +91 98765 43210
+                  +91 797794669
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -123,16 +122,16 @@ const Footer = () => {
                   href="tel:+919876543211"
                   className="text-gray-400 hover:text-primary transition-colors"
                 >
-                  +91 98765 43211
+                  +917208673634
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <FaEnvelope className="text-primary flex-shrink-0" />
                 <a
-                  href="mailto:info@vardansigns.com"
+                  href="mailto:vayucreation2025@gmail.com"
                   className="text-gray-400 hover:text-primary transition-colors"
                 >
-                  info@vardansigns.com
+                  vayucreation2025@gmail.com
                 </a>
               </li>
             </ul>
@@ -177,7 +176,7 @@ const Footer = () => {
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/919876543210"
+        href="https://wa.me/91797794669"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 z-50 animate-bounce"

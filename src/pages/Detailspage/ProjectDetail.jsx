@@ -298,15 +298,15 @@ const ProjectDetail = () => {
                 
                 <div className="space-y-3">
                   <a
-                    href="tel:+919876543210"
+                    href="tel:+91797794669"
                     className="flex items-center gap-2 bg-white text-primary rounded-lg p-3 hover:bg-gray-50 transition-colors text-sm font-semibold"
                   >
                     <FaPhone />
-                    Call: +91 98765 43210
+                    Call: +91 797794669
                   </a>
 
                   <a
-                    href="https://wa.me/919876543210"
+                    href="https://wa.me/91797794669"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 bg-green-500 text-white rounded-lg p-3 hover:bg-green-600 transition-colors text-sm font-semibold"

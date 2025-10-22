@@ -42,7 +42,7 @@ const OurWork = () => {
             {[
               { number: "2000+", label: "Projects Completed" },
               { number: "500+", label: "Happy Clients" },
-              { number: "15+", label: "Years Experience" },
+              { number: "9", label: "Years Experience" },
               { number: "100%", label: "Satisfaction Rate" }
             ].map((stat, index) => (
               <div key={index} className="text-center p-6 bg-gray-50 rounded-xl">

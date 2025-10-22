@@ -239,11 +239,11 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-secondary mb-2">Phone Numbers</h4>
                     <div className="space-y-1">
-                      <a href="tel:+919876543210" className="block text-gray-600 hover:text-primary transition-colors">
-                        +91 98765 43210
+                      <a href="tel:+91797794669" className="block text-gray-600 hover:text-primary transition-colors">
+                        +91 797794669
                       </a>
                       <a href="tel:+919876543211" className="block text-gray-600 hover:text-primary transition-colors">
-                        +91 98765 43211
+                        +917208673634
                       </a>
                     </div>
                   </div>
@@ -256,8 +256,8 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-secondary mb-2">Email</h4>
                     <div className="space-y-1">
-                      <a href="mailto:info@vardansigns.com" className="block text-gray-600 hover:text-primary transition-colors">
-                        info@vardansigns.com
+                      <a href="mailto:vayucreation2025@gmail.com" className="block text-gray-600 hover:text-primary transition-colors">
+                        vayucreation2025@gmail.com
                       </a>
                       <a href="mailto:contact@vardansigns.com" className="block text-gray-600 hover:text-primary transition-colors">
                         contact@vardansigns.com
@@ -273,7 +273,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-secondary mb-2">WhatsApp</h4>
                     <a
-                      href="https://wa.me/919876543210"
+                      href="https://wa.me/91797794669"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 hover:text-green-600 transition-colors"
@@ -310,7 +310,7 @@ const Contact = () => {
                     <div className="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">
                       ✓
                     </div>
-                    <span className="text-gray-700">15+ Years Experience</span>
+                    <span className="text-gray-700">9 Years Experience</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">
@@ -349,11 +349,11 @@ const Contact = () => {
               enhance your brand visibility with professional signage.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+919876543210" className="btn-primary">
+              <a href="tel:+91797794669" className="btn-primary">
                 Call Us Now
               </a>
               <a 
-                href="https://wa.me/919876543210" 
+                href="https://wa.me/91797794669" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn-secondary"

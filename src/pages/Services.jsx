@@ -10,22 +10,22 @@ const Services = () => {
     {
       title: "Front Light",
       description: "Direct illumination from the front for maximum visibility",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-958618666-fcd25c85cd64?w=400&h=300&fit=crop"
     },
     {
       title: "Reverse Light (Halo Effect)",
       description: "Backlighting creates an elegant halo glow effect",
-      image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-957804506-669a67965ba0?w=400&h=300&fit=crop"
     },
     {
       title: "Neon Light",
       description: "Vibrant neon glow for modern, trendy aesthetics",
-      image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-914933651103-005eec06c04b?w=400&h=300&fit=crop"
     },
     {
       title: "Block Out",
       description: "Opaque design with selective illumination",
-      image: "https://images.unsplash.com/photo-1551721434-8b94ddff0e6d?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-951721434-8b94ddff0e6d?w=400&h=300&fit=crop"
     }
   ];
 
@@ -219,7 +219,7 @@ const Services = () => {
               Get a Free Quote
             </button>
             <a 
-              href="https://wa.me/919876543210" 
+              href="https://wa.me/91797794669" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-primary"

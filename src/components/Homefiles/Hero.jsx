@@ -30,7 +30,7 @@ const Hero = () => {
             
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
               Engage your customers with clear and loud interactive screens for lasting impressions. 
-              15+ years of experience in delivering premium signage solutions.
+              9 years of experience in delivering premium signage solutions.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -99,7 +99,7 @@ const Hero = () => {
           <div className="relative hidden md:block">
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=800&fit=crop"
+                src="https://images.unsplash.com/photo-957804506-669a67965ba0?w=800&h=800&fit=crop"
                 alt="LED Signage"
                 className="rounded-2xl shadow-2xl w-full"
               />

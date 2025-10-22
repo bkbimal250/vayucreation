@@ -7,7 +7,7 @@ export const statsData = [
   },
   {
     id: 2,
-    number: "15+",
+    number: "9",
     label: "Years of Experience",
     icon: "experience"
   },

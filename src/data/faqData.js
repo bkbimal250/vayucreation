@@ -70,7 +70,7 @@ export const faqData = [
     answer: "Yes, we offer special discounts for bulk orders and have loyalty programs for repeat customers."
   },
   {
-    id: 15,
+    id: 9,
     question: "What are the different types of signage lighting options you offer?",
     answer: "We offer Front light, Reverse light (halo effect), Neon light, and Block out lighting options."
   },

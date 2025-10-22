@@ -30,7 +30,7 @@ const About = () => {
   ];
 
   const features = [
-    "15+ years of industry experience",
+    "9 years of industry experience",
     "In-house design and manufacturing",
     "Premium quality materials",
     "Experienced installation team",
@@ -69,7 +69,7 @@ const About = () => {
               <h2 className="section-title">Who We Are</h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  Vayu creations is a leading signage company based in Mumbai, with over 15 years 
+                  Vayu creations is a leading signage company based in Mumbai, with over 9 years 
                   of experience in delivering exceptional signage solutions to businesses across 
                   various industries.
                 </p>
@@ -214,7 +214,7 @@ const About = () => {
               <button onClick={openModal} className="btn-primary">
                 Get a Quote
               </button>
-              <a href="tel:+919876543210" className="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-secondary">
+              <a href="tel:+91797794669" className="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-secondary">
                 Call Us Now
               </a>
             </div>

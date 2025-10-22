@@ -5,7 +5,7 @@ export const projectsData = [
     category: "3D Signage",
     client: "Fine Dining Restaurant",
     location: "Downtown Navi Mumbai - Thane",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-955396273-367ea4eb4db5?w=800&h=600&fit=crop",
     description: "Elegant 3D illuminated signage with gold finish for a premium dining establishment.",
     completionDate: "January 2024"
   },
@@ -30,22 +30,12 @@ export const projectsData = [
     completionDate: "November 2023"
   },
   {
-    id: 4,
-    title: "Highway Billboard Campaign",
-    category: "Billboard",
-    client: "Real Estate Developer",
-    location: "Highway Junction",
-    image: "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=800&h=600&fit=crop",
-    description: "High-visibility billboard installation for property marketing campaign.",
-    completionDate: "October 2023"
-  },
-  {
     id: 5,
     title: "Cafe Neon Signage",
     category: "Neon Signage",
     client: "Trendy Cafe",
     location: "Arts District",
-    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-914933651103-005eec06c04b?w=800&h=600&fit=crop",
     description: "Custom neon signage with Instagram-worthy design for modern cafe.",
     completionDate: "September 2023"
   },
@@ -55,7 +45,7 @@ export const projectsData = [
     category: "3D Signage",
     client: "Luxury Hotel",
     location: "City Center",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-966073771259-6a8506099945?w=800&h=600&fit=crop",
     description: "Grand 3D signage with elegant lighting for luxury hotel entrance.",
     completionDate: "August 2023"
   },
@@ -65,7 +55,7 @@ export const projectsData = [
     category: "LED Display",
     client: "Fitness Center",
     location: "Sports Complex",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-934438327276-14e5300c3a48?w=800&h=600&fit=crop",
     description: "Energetic LED signage with programmable content for fitness facility.",
     completionDate: "July 2023"
   },
@@ -75,7 +65,7 @@ export const projectsData = [
     category: "Event Signage",
     client: "Trade Show Exhibitor",
     location: "Convention Center",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-940575467063-178a50c2df87?w=800&h=600&fit=crop",
     description: "Portable and eye-catching signage for trade show exhibition booth.",
     completionDate: "June 2023"
   },
