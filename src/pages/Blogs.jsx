@@ -27,7 +27,11 @@ const Blogs = () => {
         </div>
         
         <div className="container-custom relative z-10">
-          <div className="max-w-3xl">
+          <div 
+            className="max-w-3xl"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Our <span className="text-primary">Blog</span>
             </h1>
@@ -41,16 +45,24 @@ const Blogs = () => {
       {/* Featured Blog */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container-custom">
-          <div className="mb-12">
+          <div 
+            className="mb-12"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               Featured Article
             </span>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 bg-gray-50 rounded-2xl overflow-hidden shadow-lg">
+          <div 
+            className="grid md:grid-cols-2 gap-8 bg-gray-50 rounded-2xl overflow-hidden shadow-lg"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <div className="relative h-64 md:h-full">
               <img
-                src={featuredBlog.image}
+                src={featuredBlog.thumbnail || featuredBlog.image}
                 alt={featuredBlog.title}
                 className="w-full h-full object-cover"
               />

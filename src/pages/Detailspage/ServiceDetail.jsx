@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { servicesData } from '../../data/servicesData';
-import { FaCheckCircle, FaArrowLeft, FaPhone, FaWhatsapp, FaClock, FaAward } from 'react-icons/fa';
-import { useEffect } from 'react';
+import { FaCheckCircle, FaArrowLeft, FaPhone, FaWhatsapp, FaClock, FaAward, FaChevronLeft, FaChevronRight, FaTimes, FaExpand } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
 import { useContactModal } from '../../common/ContactModalContext';
 
 const ServiceDetail = () => {
@@ -9,10 +9,48 @@ const ServiceDetail = () => {
   const navigate = useNavigate();
   const { openModal } = useContactModal();
   const service = servicesData.find(s => s.id === parseInt(id));
+  
+  // Image gallery state
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  // Image gallery functions
+  const allImages = (service?.images || []).filter(img => img && img.trim() !== '');
+  const currentImage = allImages[selectedImageIndex];
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
+
+  // Keyboard navigation for image gallery
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (allImages.length <= 1) return;
+      
+      if (e.key === 'ArrowLeft') {
+        prevImage();
+      } else if (e.key === 'ArrowRight') {
+        nextImage();
+      } else if (e.key === 'Escape') {
+        setIsFullscreen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [allImages.length]);
+
+  const nextImage = () => {
+    setSelectedImageIndex((prev) => (prev + 1) % allImages.length);
+  };
+
+  const prevImage = () => {
+    setSelectedImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+  };
+
+  const selectImage = (index) => {
+    setSelectedImageIndex(index);
+  };
 
   if (!service) {
     return (
@@ -35,10 +73,10 @@ const ServiceDetail = () => {
       {/* Hero Section with Image */}
       <section className="relative bg-gradient-to-br from-secondary via-gray-800 to-secondary text-white py-20 md:py-32">
         {/* Background Image */}
-        {service.image && (
+        {service.thumbnail && (
           <div className="absolute inset-0">
             <img 
-              src={service.image} 
+              src={service.thumbnail} 
               alt={service.title}
               className="w-full h-full object-cover opacity-20"
             />
@@ -81,12 +119,97 @@ const ServiceDetail = () => {
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              {/* Service Image */}
-              {service.image && (
+              {/* Flipkart-style Image Gallery */}
+              {allImages.length > 0 && (
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-secondary mb-6">Project Gallery</h2>
+                  
+                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                    {/* Thumbnail Navigation */}
+                    <div className="lg:col-span-1 order-2 lg:order-1">
+                      <div className="space-y-2 max-h-96 overflow-y-auto">
+                        {allImages.map((image, index) => (
+                          image && (
+                            <div
+                              key={index}
+                              onClick={() => selectImage(index)}
+                              className={`cursor-pointer rounded-lg overflow-hidden border-2 transition-all duration-200 ${
+                                selectedImageIndex === index
+                                  ? 'border-primary shadow-lg'
+                                  : 'border-gray-200 hover:border-gray-300'
+                              }`}
+                            >
+                              <img
+                                src={image}
+                                alt={`${service.title} - Thumbnail ${index + 1}`}
+                                className="w-full h-20 object-cover"
+                              />
+                            </div>
+                          )
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Main Image Display */}
+                    <div className="lg:col-span-3 order-1 lg:order-2">
+                      <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden">
+                        {/* Main Image */}
+                        <div className="relative aspect-square bg-gray-100">
+                          {currentImage ? (
+                            <img
+                              src={currentImage}
+                              alt={`${service.title} - Main View`}
+                              className="w-full h-full object-contain"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center text-gray-500">
+                              No image available
+                            </div>
+                          )}
+                          
+                          {/* Navigation Arrows */}
+                          {allImages.length > 1 && (
+                            <>
+                              <button
+                                onClick={prevImage}
+                                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
+                              >
+                                <FaChevronLeft />
+                              </button>
+                              <button
+                                onClick={nextImage}
+                                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
+                              >
+                                <FaChevronRight />
+                              </button>
+                            </>
+                          )}
+
+                          {/* Fullscreen Button */}
+                          <button
+                            onClick={() => setIsFullscreen(true)}
+                            className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
+                          >
+                            <FaExpand />
+                          </button>
+
+                          {/* Image Counter */}
+                          <div className="absolute bottom-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                            {selectedImageIndex + 1} / {allImages.length}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Fallback Thumbnail */}
+              {allImages.length === 0 && service.thumbnail && (
                 <div className="mb-12">
                   <div className="rounded-2xl overflow-hidden shadow-xl">
                     <img 
-                      src={service.image} 
+                      src={service.thumbnail} 
                       alt={service.title}
                       className="w-full h-96 object-cover"
                     />
@@ -214,18 +337,18 @@ const ServiceDetail = () => {
                 
                 <div className="space-y-4">
                   <a
-                    href="tel:+91797794669"
+                    href="tel:+917977154669"
                     className="flex items-center gap-3 bg-white text-primary rounded-lg p-4 hover:bg-gray-50 transition-colors"
                   >
                     <FaPhone className="text-xl" />
                     <div>
                       <div className="text-sm opacity-75">Call Us Now</div>
-                      <div className="font-semibold">+91 797794669</div>
+                      <div className="font-semibold">+91 7977154669</div>
                     </div>
                   </a>
 
                   <a
-                    href="https://wa.me/91797794669"
+                    href="https://wa.me/917977154669"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 bg-green-500 text-white rounded-lg p-4 hover:bg-green-600 transition-colors"
@@ -272,10 +395,10 @@ const ServiceDetail = () => {
                   to={`/services/${relatedService.id}`}
                   className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
                 >
-                  {relatedService.image && (
+                  {relatedService.thumbnail && (
                     <div className="relative h-48 overflow-hidden">
                       <img 
-                        src={relatedService.image} 
+                        src={relatedService.thumbnail} 
                         alt={relatedService.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
@@ -322,6 +445,57 @@ const ServiceDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* Fullscreen Image Modal */}
+      {isFullscreen && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+          <div className="relative max-w-7xl max-h-full">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsFullscreen(false)}
+              className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-200"
+            >
+              <FaTimes />
+            </button>
+
+            {/* Navigation Arrows */}
+            {allImages.length > 1 && (
+              <>
+                <button
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-200"
+                >
+                  <FaChevronLeft />
+                </button>
+                <button
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-200"
+                >
+                  <FaChevronRight />
+                </button>
+              </>
+            )}
+
+            {/* Fullscreen Image */}
+            {currentImage ? (
+              <img
+                src={currentImage}
+                alt={`${service.title} - Fullscreen View`}
+                className="max-w-full max-h-full object-contain rounded-lg"
+              />
+            ) : (
+              <div className="max-w-full max-h-full flex items-center justify-center text-white text-xl">
+                No image available
+              </div>
+            )}
+
+            {/* Image Counter */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-full">
+              {selectedImageIndex + 1} / {allImages.length}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

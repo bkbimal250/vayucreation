@@ -67,10 +67,10 @@ Open Chrome DevTools (F12) and test on:
 
 ### 1. Contact Information (Priority!)
 Replace dummy contact details:
-- **Phone:** +91 797794669 → Your actual number
+- **Phone:** +91 7977154669 → Your actual number
 - **Email:** vayucreation2025@gmail.com → Your actual email
 - **Address:** Update in Footer and Contact sections
-- **WhatsApp:** Update WhatsApp number (currently 91797794669)
+- **WhatsApp:** Update WhatsApp number (currently 917977154669)
 
 **Files to update:**
 - `src/common/Header.jsx` (lines with phone/email)

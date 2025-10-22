@@ -39,9 +39,9 @@ const Header = () => {
       <div className="bg-secondary text-white py-2 hidden md:block">
         <div className="container-custom flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
-            <a href="tel:+91797794669" className="flex items-center gap-2 hover:text-primary transition-colors">
+            <a href="tel:+917977154669" className="flex items-center gap-2 hover:text-primary transition-colors">
               <FaPhone className="text-xs" />
-              <span>+91 797794669</span>
+              <span>+91 7977154669</span>
             </a>
             <a href="mailto:vayucreation2025@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
               <FaEnvelope className="text-xs" />
@@ -50,7 +50,7 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-4">
             <a 
-              href="https://wa.me/91797794669" 
+              href="https://wa.me/917977154669" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-green-600 hover:bg-green-700 px-4 py-1 rounded-full transition-colors"
@@ -159,9 +159,9 @@ const Header = () => {
                 Get a Quote
               </button>
               <div className="mt-4 space-y-2 text-sm text-gray-600">
-                <a href="tel:+91797794669" className="flex items-center gap-2 hover:text-primary">
+                <a href="tel:+917977154669" className="flex items-center gap-2 hover:text-primary">
                   <FaPhone className="text-xs" />
-                  <span>+91 797794669</span>
+                  <span>+91 7977154669</span>
                 </a>
                 <a href="mailto:vayucreation2025@gmail.com" className="flex items-center gap-2 hover:text-primary">
                   <FaEnvelope className="text-xs" />

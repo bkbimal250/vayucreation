@@ -23,12 +23,16 @@ const ServiceCard = ({ service }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group hover:-translate-y-2">
+    <div 
+      className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group hover:-translate-y-2"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
       {/* Image Section */}
-      {service.image && (
+      {service.thumbnail && (
         <div className="relative h-48 overflow-hidden">
           <img 
-            src={service.image} 
+            src={service.thumbnail} 
             alt={service.title}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           />

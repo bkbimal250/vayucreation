@@ -110,10 +110,10 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <FaPhone className="text-primary flex-shrink-0" />
                 <a
-                  href="tel:+91797794669"
+                  href="tel:+917977154669"
                   className="text-gray-400 hover:text-primary transition-colors"
                 >
-                  +91 797794669
+                  +91 7977154669
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -176,7 +176,7 @@ const Footer = () => {
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/91797794669"
+        href="https://wa.me/917977154669"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 z-50 animate-bounce"

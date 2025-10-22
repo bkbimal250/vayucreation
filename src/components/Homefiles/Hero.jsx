@@ -16,7 +16,11 @@ const Hero = () => {
       <div className="container-custom relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div className="space-y-6 md:space-y-8">
+          <div 
+            className="space-y-6 md:space-y-8"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
             <div className="inline-block">
               <span className="bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold">
                 #1 Signage Company in Mumbai
@@ -96,7 +100,11 @@ const Hero = () => {
           </div>
 
           {/* Image/Visual */}
-          <div className="relative hidden md:block">
+          <div 
+            className="relative hidden md:block"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
             <div className="relative">
               <img
                 src="https://images.unsplash.com/photo-957804506-669a67965ba0?w=800&h=800&fit=crop"

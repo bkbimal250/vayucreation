@@ -3,10 +3,14 @@ import { FaClock, FaUser, FaTag } from 'react-icons/fa';
 
 const BlogCard = ({ blog }) => {
   return (
-    <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+    <div 
+      className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
+      data-aos="fade-up"
+      data-aos-delay="300"
+    >
       <div className="relative overflow-hidden h-48 md:h-56">
         <img
-          src={blog.image}
+          src={blog.thumbnail || blog.image}
           alt={blog.title}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />

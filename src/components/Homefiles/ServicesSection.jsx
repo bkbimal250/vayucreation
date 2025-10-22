@@ -6,7 +6,11 @@ const ServicesSection = () => {
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="container-custom">
-        <div className="text-center mb-12">
+        <div 
+          className="text-center mb-12"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             Our Services
           </span>
@@ -21,7 +25,11 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div 
+          className="text-center mt-12"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
           <Link to="/services" className="btn-primary inline-block">
             View All Services
           </Link>

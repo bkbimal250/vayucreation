@@ -13,7 +13,11 @@ const AboutSection = () => {
   return (
     <section className="py-16 md:py-24 bg-gray-50">
       <div className="container-custom">
-        <div className="text-center mb-12">
+        <div 
+          className="text-center mb-12"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
             #1 Signage Company in Mumbai
           </span>
@@ -27,7 +31,11 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div 
+          className="grid md:grid-cols-2 gap-12 items-center"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           {/* Image */}
           <div className="relative">
             <img

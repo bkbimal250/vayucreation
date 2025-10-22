@@ -96,7 +96,7 @@ const ContactSection = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
-                    placeholder="+91 797794669"
+                    placeholder="+91 7977154669"
                   />
                 </div>
               </div>
@@ -172,8 +172,8 @@ const ContactSection = () => {
                   <div>
                     <h4 className="font-semibold text-secondary mb-1">Phone Numbers</h4>
                     <p className="text-gray-600">
-                      <a href="tel:+91797794669" className="hover:text-primary transition-colors">
-                        +91 797794669
+                      <a href="tel:+917977154669" className="hover:text-primary transition-colors">
+                        +91 7977154669
                       </a>
                       <br />
                       <a href="tel:+919876543211" className="hover:text-primary transition-colors">
@@ -227,7 +227,7 @@ const ContactSection = () => {
                 </div>
               </div>
               <a
-                href="https://wa.me/91797794669"
+                href="https://wa.me/917977154669"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary bg-white text-green-600 hover:bg-green-50 w-full inline-block text-center"

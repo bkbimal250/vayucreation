@@ -1,0 +1,27 @@
+{
+  "name": "Vayu Creations - Premium Signage Solutions",
+  "short_name": "Vayu Creations",
+  "description": "Leading signage company offering 3D signage, LED displays, neon boards, and custom signage solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f97316",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "shopping", "productivity"],
+  "lang": "en",
+  "dir": "ltr"
+}

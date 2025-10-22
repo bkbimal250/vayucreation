@@ -10,22 +10,22 @@ const Services = () => {
     {
       title: "Front Light",
       description: "Direct illumination from the front for maximum visibility",
-      image: "https://images.unsplash.com/photo-958618666-fcd25c85cd64?w=400&h=300&fit=crop"
+      image: "/assets/images/2D.jpg"
     },
     {
       title: "Reverse Light (Halo Effect)",
       description: "Backlighting creates an elegant halo glow effect",
-      image: "https://images.unsplash.com/photo-957804506-669a67965ba0?w=400&h=300&fit=crop"
+      image: "/assets/images/BACK LIGHT.jpg"
     },
     {
       title: "Neon Light",
       description: "Vibrant neon glow for modern, trendy aesthetics",
-      image: "https://images.unsplash.com/photo-914933651103-005eec06c04b?w=400&h=300&fit=crop"
+      image: "/assets/images/Neon Signage.jpg"
     },
     {
-      title: "Block Out",
-      description: "Opaque design with selective illumination",
-      image: "https://images.unsplash.com/photo-951721434-8b94ddff0e6d?w=400&h=300&fit=crop"
+      title: "LED Display",
+      description: "Dynamic digital displays with bright, customizable content",
+      image: "/assets/images/LED Displays 1.jpg"
     }
   ];
 
@@ -38,7 +38,11 @@ const Services = () => {
         </div>
         
         <div className="container-custom relative z-10">
-          <div className="max-w-3xl">
+          <div 
+            className="max-w-3xl"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Our <span className="text-primary">Services</span>
             </h1>
@@ -53,7 +57,11 @@ const Services = () => {
       {/* Main Services */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container-custom">
-          <div className="text-center mb-12">
+          <div 
+            className="text-center mb-12"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <h2 className="section-title">Our Main Services</h2>
             <p className="section-subtitle">
               Professional signage solutions for every business need
@@ -71,7 +79,11 @@ const Services = () => {
       {/* Additional Services */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container-custom">
-          <div className="text-center mb-12">
+          <div 
+            className="text-center mb-12"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <h2 className="section-title">Additional Services</h2>
             <p className="section-subtitle">
               We offer many more specialized signage solutions
@@ -219,7 +231,7 @@ const Services = () => {
               Get a Free Quote
             </button>
             <a 
-              href="https://wa.me/91797794669" 
+              href="https://wa.me/917977154669" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-primary"

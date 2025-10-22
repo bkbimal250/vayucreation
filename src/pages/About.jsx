@@ -214,7 +214,7 @@ const About = () => {
               <button onClick={openModal} className="btn-primary">
                 Get a Quote
               </button>
-              <a href="tel:+91797794669" className="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-secondary">
+              <a href="tel:+917977154669" className="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-secondary">
                 Call Us Now
               </a>
             </div>

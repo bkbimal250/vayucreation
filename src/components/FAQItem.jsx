@@ -1,27 +1,44 @@
 import { useState } from 'react';
-import { FaPlus, FaMinus } from 'react-icons/fa';
+import { FaPlus, FaMinus, FaQuestion } from 'react-icons/fa';
 
 const FAQItem = ({ faq }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+    <div 
+      className="border-b border-gray-200 last:border-b-0"
+      data-aos="fade-up"
+      data-aos-delay="500"
+    >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-4 md:p-6 text-left hover:bg-gray-50 transition-colors"
+        className="w-full flex items-center justify-between py-4 px-0 text-left hover:bg-gray-50 transition-colors group"
       >
-        <span className="font-semibold text-secondary pr-4">{faq.question}</span>
-        <span className="text-primary flex-shrink-0">
-          {isOpen ? <FaMinus /> : <FaPlus />}
-        </span>
+        <div className="flex items-center gap-3 flex-1">
+          {/* Question Icon */}
+          <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+            <FaQuestion className="text-white text-xs" />
+          </div>
+          
+          {/* Question Text */}
+          <span className="font-medium text-gray-800 text-left group-hover:text-blue-600 transition-colors">
+            {faq.question}
+          </span>
+        </div>
+        
+        {/* Expand/Collapse Icon */}
+        <div className="text-red-500 flex-shrink-0 ml-4">
+          {isOpen ? <FaMinus className="text-sm" /> : <FaPlus className="text-sm" />}
+        </div>
       </button>
       
+      {/* Answer Content */}
       <div
-        className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-96' : 'max-h-0'
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="p-4 md:p-6 pt-0 text-gray-600 leading-relaxed">
+        <div className="pb-4 pl-9 pr-4 text-gray-600 leading-relaxed">
           {faq.answer}
         </div>
       </div>

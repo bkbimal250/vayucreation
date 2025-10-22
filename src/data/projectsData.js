@@ -1,3 +1,94 @@
+// Available images from ourworks directory
+const ourworksImages = [
+  "/assets/images/ourworks/vayucreation (1).jpeg",
+  "/assets/images/ourworks/vayucreation (2).jpeg",
+  "/assets/images/ourworks/vayucreation (3).jpeg",
+  "/assets/images/ourworks/vayucreation (4).jpeg",
+  "/assets/images/ourworks/vayucreation (5).jpeg",
+  "/assets/images/ourworks/vayucreation (6).jpeg",
+  "/assets/images/ourworks/vayucreation (7).jpeg",
+  "/assets/images/ourworks/vayucreation (8).jpeg",
+  "/assets/images/ourworks/vayucreation (9).jpeg",
+  "/assets/images/ourworks/vayucreation (10).jpeg",
+  "/assets/images/ourworks/vayucreation (11).jpeg",
+  "/assets/images/ourworks/vayucreation (12).jpeg",
+  "/assets/images/ourworks/vayucreation (13).jpeg",
+  "/assets/images/ourworks/vayucreation (14).jpeg",
+  "/assets/images/ourworks/vayucreation (15).jpeg",
+  "/assets/images/ourworks/vayucreation (16).jpeg",
+  "/assets/images/ourworks/vayucreation (17).jpeg",
+  "/assets/images/ourworks/vayucreation (18).jpeg",
+  "/assets/images/ourworks/vayucreation (19).jpeg",
+  "/assets/images/ourworks/vayucreation (20).jpeg",
+  "/assets/images/ourworks/vayucreation (21).jpeg",
+  "/assets/images/ourworks/vayucreation (22).jpeg",
+  "/assets/images/ourworks/vayucreation (23).jpeg",
+  "/assets/images/ourworks/vayucreation (24).jpeg",
+  "/assets/images/ourworks/vayucreation (25).jpeg",
+  "/assets/images/ourworks/vayucreation (26).jpeg",
+  "/assets/images/ourworks/vayucreation (27).jpeg",
+  "/assets/images/ourworks/vayucreation (28).jpeg",
+  "/assets/images/ourworks/vayucreation (29).jpeg",
+  "/assets/images/ourworks/vayucreation (30).jpeg",
+  "/assets/images/ourworks/vayucreation (31).jpeg",
+  "/assets/images/ourworks/vayucreation (32).jpeg",
+  "/assets/images/ourworks/vayucreation (33).jpeg",
+  "/assets/images/ourworks/vayucreation (34).jpeg",
+  "/assets/images/ourworks/vayucreation (35).jpeg",
+  "/assets/images/ourworks/vayucreation (36).jpeg",
+  "/assets/images/ourworks/vayucreation (37).jpeg",
+  "/assets/images/ourworks/vayucreation (38).jpeg",
+  "/assets/images/ourworks/vayucreation (39).jpeg",
+  "/assets/images/ourworks/vayucreation (40).jpeg",
+  "/assets/images/ourworks/vayucreation (41).jpeg",
+  "/assets/images/ourworks/vayucreation (42).jpeg",
+  "/assets/images/ourworks/vayucreation (43).jpeg",
+  "/assets/images/ourworks/vayucreation (44).jpeg",
+  "/assets/images/ourworks/vayucreation (45).jpeg",
+  "/assets/images/ourworks/vayucreation (46).jpeg",
+  "/assets/images/ourworks/vayucreation (47).jpeg",
+  "/assets/images/ourworks/vayucreation (48).jpeg",
+  "/assets/images/ourworks/vayucreation (49).jpeg",
+  "/assets/images/ourworks/vayucreation (50).jpeg",
+  "/assets/images/ourworks/vayucreation (51).jpeg",
+  "/assets/images/ourworks/vayucreation (52).jpeg",
+  "/assets/images/ourworks/vayucreation (53).jpeg",
+  "/assets/images/ourworks/vayucreation (54).jpeg",
+  "/assets/images/ourworks/vayucreation (55).jpeg",
+  "/assets/images/ourworks/vayucreation (56).jpeg",
+  "/assets/images/ourworks/vayucreation (57).jpeg",
+  "/assets/images/ourworks/vayucreation (58).jpeg",
+  "/assets/images/ourworks/vayucreation (59).jpeg",
+  "/assets/images/ourworks/vayucreation (60).jpeg",
+  "/assets/images/ourworks/vayucreation (61).jpeg",
+  "/assets/images/ourworks/vayucreation (62).jpeg",
+  "/assets/images/ourworks/vayucreation (63).jpeg",
+  "/assets/images/ourworks/vayucreation (64).jpeg",
+  "/assets/images/ourworks/vayucreation (65).jpeg",
+  "/assets/images/ourworks/vayucreation (66).jpeg",
+  "/assets/images/ourworks/vayucreation (67).jpeg",
+  "/assets/images/ourworks/vayucreation (68).jpeg",
+  "/assets/images/ourworks/vayucreation (69).jpeg",
+  "/assets/images/ourworks/vayucreation (70).jpeg",
+  "/assets/images/ourworks/vayucreation (71).jpeg",
+  "/assets/images/ourworks/vayucreation (72).jpeg",
+  "/assets/images/ourworks/vayucreation (73).jpeg",
+  "/assets/images/ourworks/vayucreation (74).jpeg",
+  "/assets/images/ourworks/vayucreation (75).jpeg",
+  "/assets/images/ourworks/vayucreation (76).jpeg"
+];
+
+// Function to get random images for project gallery
+const getRandomImages = (count = 3) => {
+  const shuffled = [...ourworksImages].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+};
+
+// Function to get random single image
+const getRandomImage = () => {
+  return ourworksImages[Math.floor(Math.random() * ourworksImages.length)];
+};
+
 export const projectsData = [
   {
     id: 1,
@@ -5,7 +96,9 @@ export const projectsData = [
     category: "3D Signage",
     client: "Fine Dining Restaurant",
     location: "Downtown Navi Mumbai - Thane",
-    image: "https://images.unsplash.com/photo-955396273-367ea4eb4db5?w=800&h=600&fit=crop",
+    image: getRandomImage(),
+    thumbnail: getRandomImage(),
+    projectGallery: getRandomImages(4),
     description: "Elegant 3D illuminated signage with gold finish for a premium dining establishment.",
     completionDate: "January 2024"
   },
@@ -15,7 +108,9 @@ export const projectsData = [
     category: "LED Display",
     client: "Tech Corporation",
     location: "IT Park",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
+    image: getRandomImage(),
+    thumbnail: getRandomImage(),
+    projectGallery: getRandomImages(5),
     description: "Large-format LED display for corporate lobby with dynamic content capabilities.",
     completionDate: "December 2023"
   },
@@ -25,7 +120,9 @@ export const projectsData = [
     category: "2D Signage",
     client: "Fashion Boutique",
     location: "Shopping Mall",
-    image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&h=600&fit=crop",
+    image: getRandomImage(),
+    thumbnail: getRandomImage(),
+    projectGallery: getRandomImages(3),
     description: "Vibrant illuminated 2D signage with modern typography for retail storefront.",
     completionDate: "November 2023"
   },
@@ -35,7 +132,9 @@ export const projectsData = [
     category: "Neon Signage",
     client: "Trendy Cafe",
     location: "Arts District",
-    image: "https://images.unsplash.com/photo-914933651103-005eec06c04b?w=800&h=600&fit=crop",
+    image: getRandomImage(),
+    thumbnail: getRandomImage(),
+    projectGallery: getRandomImages(4),
     description: "Custom neon signage with Instagram-worthy design for modern cafe.",
     completionDate: "September 2023"
   },
@@ -45,7 +144,9 @@ export const projectsData = [
     category: "3D Signage",
     client: "Luxury Hotel",
     location: "City Center",
-    image: "https://images.unsplash.com/photo-966073771259-6a8506099945?w=800&h=600&fit=crop",
+    image: getRandomImage(),
+    thumbnail: getRandomImage(),
+    projectGallery: getRandomImages(6),
     description: "Grand 3D signage with elegant lighting for luxury hotel entrance.",
     completionDate: "August 2023"
   },
@@ -55,7 +156,9 @@ export const projectsData = [
     category: "LED Display",
     client: "Fitness Center",
     location: "Sports Complex",
-    image: "https://images.unsplash.com/photo-934438327276-14e5300c3a48?w=800&h=600&fit=crop",
+    image: getRandomImage(),
+    thumbnail: getRandomImage(),
+    projectGallery: getRandomImages(5),
     description: "Energetic LED signage with programmable content for fitness facility.",
     completionDate: "July 2023"
   },
@@ -65,7 +168,9 @@ export const projectsData = [
     category: "Event Signage",
     client: "Trade Show Exhibitor",
     location: "Convention Center",
-    image: "https://images.unsplash.com/photo-940575467063-178a50c2df87?w=800&h=600&fit=crop",
+    image: getRandomImage(),
+    thumbnail: getRandomImage(),
+    projectGallery: getRandomImages(4),
     description: "Portable and eye-catching signage for trade show exhibition booth.",
     completionDate: "June 2023"
   },
@@ -75,7 +180,9 @@ export const projectsData = [
     category: "2D & 3D Combo",
     client: "Automobile Dealership",
     location: "Auto Mile",
-    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=600&fit=crop",
+    image: getRandomImage(),
+    thumbnail: getRandomImage(),
+    projectGallery: getRandomImages(5),
     description: "Complete signage package including exterior and interior branding.",
     completionDate: "May 2023"
   }

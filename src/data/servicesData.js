@@ -5,9 +5,10 @@ export const servicesData = [
     description: "Eye-catching three-dimensional signs that add depth and visual appeal to your brand presence. Perfect for storefronts and corporate offices.",
     icon: "3d",
     images:[
-
+      "/assets/images/3D.jpg",
+      "/assets/images/3DD.jpg"
     ],
-    thumbnail: "https://thumbnails.unsplash.com/photo-963089145-599997674d42?w=800&h=600&fit=crop",
+    thumbnail: "/assets/images/3D.jpg",
     features: [
       "Premium acrylic materials",
       "LED backlighting options",
@@ -21,9 +22,10 @@ export const servicesData = [
     description: "Classic flat signage solutions with vibrant colors and sharp graphics. Ideal for both indoor and outdoor applications.",
     icon: "2d",
      images:[
-
+      "/assets/images/2DD.jpg",
+"/assets/images/2D.jpg"
     ],
-    thumbnail: "https://thumbnails.unsplash.com/photo-958618666-fcd25c85cd64?w=800&h=600&fit=crop",
+    thumbnail: "/assets/images/2D.jpg",
     features: [
       "High-resolution graphics",
       "Durable materials",
@@ -37,9 +39,10 @@ export const servicesData = [
     description: "Dynamic digital displays that capture attention with bright, customizable content. Perfect for modern businesses.",
     icon: "led",
      images:[
-
+      "/assets/images/LED Displays 1.jpg",
+      "/assets/images/LED Displays 2.jpg"
     ],
-    thumbnail: "https://thumbnails.unsplash.com/photo-951269901-5c5e14c25df7?w=800&h=600&fit=crop",
+    thumbnail: "/assets/images/LED Displays 1.jpg",
     features: [
       "Energy-efficient technology",
       "Programmable content",
@@ -53,9 +56,11 @@ export const servicesData = [
     description: "Temporary and portable signage solutions for events, exhibitions, and special occasions.",
     icon: "event",
      images:[
-
+      "/assets/images/Event Signage.jpg",
+      "/assets/images/Event Signage 2.jpg",
+      "/assets/images/Event Signage 3.jpg"
     ],
-    thumbnail: "https://thumbnails.unsplash.com/photo-940575467063-178a50c2df87?w=800&h=600&fit=crop",
+    thumbnail: "/assets/images/Event Signage.jpg",
     features: [
       "Easy setup and removal",
       "Lightweight materials",
@@ -69,9 +74,11 @@ export const servicesData = [
     description: "Trendy neon signs that create a vibrant, modern atmosphere for restaurants, cafes, and retail spaces.",
     icon: "neon",
      images:[
-
+      "/assets/images/Neon Signage.jpg",
+      "/assets/images/Neon Signage 1.jpg",
+      "/assets/images/Neon Signage 3.jpg"
     ],
-    thumbnail: "https://thumbnails.unsplash.com/photo-919389950473-47ba0277781c?w=800&h=600&fit=crop",
+    thumbnail: "/assets/images/Neon Signage.jpg",
     features: [
       "Custom designs and colors",
       "LED neon technology",
@@ -81,36 +88,37 @@ export const servicesData = [
   },
 
   {
-    id: 6,
+    id: 5,
     title: "SS Letters",
-    description: "Trendy neon signs that create a vibrant, modern atmosphere for restaurants, cafes, and retail spaces.",
-    icon: "neon",
+    description: "Stainless steel letter signage that provides a premium, professional look for businesses and corporate environments.",
+    icon: "letters",
      images:[
-
+      "/assets/images/SS LETTERS.jpg",
+      "/assets/images/SS LETTERS 1.jpg"
     ],
-    thumbnail: "https://thumbnails.unsplash.com/photo-919389950473-47ba0277781c?w=800&h=600&fit=crop",
+    thumbnail: "/assets/images/SS LETTERS.jpg",
     features: [
-      "Custom designs and colors",
-      "LED neon technology",
-      "Indoor and outdoor use",
-      "Low maintenance"
+      "Premium stainless steel material",
+      "Weather-resistant finish",
+      "Custom fonts and sizes",
+      "Professional appearance"
     ]
   },
 
   {
-    id: 6,
+    id: 7,
     title: "Aluminium Signage",
-    description: "Trendy neon signs that create a vibrant, modern atmosphere for restaurants, cafes, and retail spaces.",
-    icon: "neon",
+    description: "Durable aluminium signage solutions perfect for outdoor applications with excellent weather resistance.",
+    icon: "aluminium",
      images:[
 
     ],
-    thumbnail: "https://thumbnails.unsplash.com/photo-919389950473-47ba0277781c?w=800&h=600&fit=crop",
+    thumbnail: "/assets/images/2D.jpg",
     features: [
-      "Custom designs and colors",
-      "LED neon technology",
-      "Indoor and outdoor use",
-      "Low maintenance"
+      "Weather-resistant material",
+      "Lightweight construction",
+      "Custom designs available",
+      "Long-lasting durability"
     ]
   }
 

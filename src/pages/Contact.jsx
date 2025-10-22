@@ -61,15 +61,22 @@ const Contact = () => {
       {/* Contact Form Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container-custom">
+          <div 
+            className="text-center mb-12"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+              Get a Free Quote
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Fill out the form below and we'll get back to you within 24 hours with a detailed quote.
+            </p>
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold text-secondary mb-4">Get a Free Quote</h2>
-                <p className="text-gray-600">
-                  Fill out the form below and we'll get back to you within 24 hours with a detailed quote.
-                </p>
-              </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Form Fields in 2 columns */}
@@ -239,8 +246,8 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-secondary mb-2">Phone Numbers</h4>
                     <div className="space-y-1">
-                      <a href="tel:+91797794669" className="block text-gray-600 hover:text-primary transition-colors">
-                        +91 797794669
+                      <a href="tel:+917977154669" className="block text-gray-600 hover:text-primary transition-colors">
+                        +91 7977154669
                       </a>
                       <a href="tel:+919876543211" className="block text-gray-600 hover:text-primary transition-colors">
                         +917208673634
@@ -259,9 +266,7 @@ const Contact = () => {
                       <a href="mailto:vayucreation2025@gmail.com" className="block text-gray-600 hover:text-primary transition-colors">
                         vayucreation2025@gmail.com
                       </a>
-                      <a href="mailto:contact@vardansigns.com" className="block text-gray-600 hover:text-primary transition-colors">
-                        contact@vardansigns.com
-                      </a>
+                     
                     </div>
                   </div>
                 </div>
@@ -273,7 +278,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-secondary mb-2">WhatsApp</h4>
                     <a
-                      href="https://wa.me/91797794669"
+                      href="https://wa.me/917977154669"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 hover:text-green-600 transition-colors"
@@ -284,13 +289,105 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Business Hours */}
-              <div className="bg-gradient-to-br from-primary to-orange-600 rounded-xl p-6 text-white">
-                <div className="flex items-center gap-3 mb-4">
+        
+             
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+              Contact Information
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Multiple ways to reach us. Choose the most convenient method for you.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Phone Contact */}
+            <div className="text-center p-6 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl border border-primary/20 hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <FaPhone className="text-primary text-2xl" />
+              </div>
+              <h3 className="text-xl font-bold text-secondary mb-2">Call Us</h3>
+              <p className="text-gray-600 mb-4">Speak directly with our team</p>
+              <div className="space-y-2">
+                <a href="tel:+917977154669" className="block text-primary hover:text-orange-600 transition-colors font-semibold">
+                  +91 7977154669
+                </a>
+                <a href="tel:+917208673634" className="block text-primary hover:text-orange-600 transition-colors font-semibold">
+                  +91 7208673634
+                </a>
+              </div>
+            </div>
+
+            {/* Email Contact */}
+            <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200 hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                <FaEnvelope className="text-blue-600 text-2xl" />
+              </div>
+              <h3 className="text-xl font-bold text-secondary mb-2">Email Us</h3>
+              <p className="text-gray-600 mb-4">Send us your requirements</p>
+              <div className="space-y-2">
+                <a href="mailto:vayucreation2025@gmail.com" className="block text-blue-600 hover:text-blue-700 transition-colors font-semibold text-sm">
+                  vayucreation2025@gmail.com
+                </a>
+                <a href="mailto:contact@vardansigns.com" className="block text-blue-600 hover:text-blue-700 transition-colors font-semibold text-sm">
+                  contact@vardansigns.com
+                </a>
+              </div>
+            </div>
+
+            {/* WhatsApp Contact */}
+            <div className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl border border-green-200 hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                <FaWhatsapp className="text-green-600 text-2xl" />
+              </div>
+              <h3 className="text-xl font-bold text-secondary mb-2">WhatsApp</h3>
+              <p className="text-gray-600 mb-4">Quick chat support</p>
+              <a 
+                href="https://wa.me/917977154669" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block text-green-600 hover:text-green-700 transition-colors font-semibold"
+              >
+                Chat Now
+              </a>
+            </div>
+
+            {/* Visit Us */}
+            <div className="text-center p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                <FaMapMarkerAlt className="text-gray-600 text-2xl" />
+              </div>
+              <h3 className="text-xl font-bold text-secondary mb-2">Visit Us</h3>
+              <p className="text-gray-600 mb-4">Come to our office</p>
+              <p className="text-sm text-gray-600">
+                Navi Mumbai - Thane<br />
+                Mumbai - 400705
+              </p>
+            </div>
+          </div>
+
+          {/* Business Hours */}
+          <div className="mt-16 bg-gradient-to-br from-secondary to-gray-800 rounded-2xl p-8 text-white">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-2">Business Hours</h3>
+              <p className="text-gray-300">We're here to help you during these hours</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-3 mb-4">
                   <FaClock className="text-2xl" />
-                  <h4 className="text-xl font-bold">Business Hours</h4>
+                  <h4 className="text-xl font-bold">Regular Hours</h4>
                 </div>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2">
                   <div className="flex justify-between">
                     <span>Monday - Saturday:</span>
                     <span className="font-semibold">9:00 AM - 7:00 PM</span>
@@ -302,33 +399,164 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Why Choose Us */}
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h4 className="font-bold text-secondary text-lg mb-4">Why Choose Us?</h4>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">
-                      ✓
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <FaPhone className="text-2xl" />
+                  <h4 className="text-xl font-bold">Emergency Support</h4>
+                </div>
+                <p className="text-gray-300 mb-2">
+                  Available for urgent signage needs
+                </p>
+                <a href="tel:+917977154669" className="text-primary hover:text-orange-400 transition-colors font-semibold">
+                  +91 7977154669
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+              Find Us Here
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Visit our office or get directions to our location. We're conveniently 
+              located in Navi Mumbai - Thane area.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Map */}
+            <div className="relative">
+              <div className="bg-gray-200 rounded-xl overflow-hidden shadow-lg h-96 lg:h-[500px]">
+                {/* Google Maps Embed */}
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.0!2d73.0!3d19.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDAwJzAwLjAiTiA3M8KwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Vayu Creations Location Map"
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+              
+              {/* Map Overlay with Directions Button */}
+              <div className="absolute top-4 right-4">
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=19.0760,72.8777"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-primary px-4 py-2 rounded-lg shadow-lg hover:bg-gray-50 transition-colors font-semibold text-sm"
+                >
+                  Get Directions
+                </a>
+              </div>
+            </div>
+
+            {/* Location Details */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold text-secondary mb-6">Our Location</h3>
+                <div className="space-y-6">
+                  {/* Address Card */}
+                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <FaMapMarkerAlt className="text-primary text-xl" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-secondary text-lg mb-2">Office Address</h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          No. 123, Industrial Area,<br />
+                          Navi Mumbai - Thane,<br />
+                          Mumbai - 400705<br />
+                          Maharashtra, India
+                        </p>
+                      </div>
                     </div>
-                    <span className="text-gray-700">9 Years Experience</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">
-                      ✓
+
+                  {/* Quick Contact */}
+                  <div className="bg-gray-50 rounded-xl p-6">
+                    <h4 className="font-bold text-secondary text-lg mb-4">Quick Contact</h4>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <FaPhone className="text-primary" />
+                        <a href="tel:+917977154669" className="text-gray-700 hover:text-primary transition-colors">
+                          +91 7977154669
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <FaEnvelope className="text-primary" />
+                        <a href="mailto:vayucreation2025@gmail.com" className="text-gray-700 hover:text-primary transition-colors">
+                          vayucreation2025@gmail.com
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <FaWhatsapp className="text-green-600" />
+                        <a 
+                          href="https://wa.me/917977154669" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-gray-700 hover:text-green-600 transition-colors"
+                        >
+                          WhatsApp: +91 7977154669
+                        </a>
+                      </div>
                     </div>
-                    <span className="text-gray-700">2000+ Projects Completed</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">
-                      ✓
+
+                  {/* Business Hours */}
+                  <div className="bg-gradient-to-br from-secondary to-gray-800 text-white rounded-xl p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <FaClock className="text-2xl" />
+                      <h4 className="text-xl font-bold">Business Hours</h4>
                     </div>
-                    <span className="text-gray-700">Free Consultation & Quote</span>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span>Monday - Saturday:</span>
+                        <span className="font-semibold">9:00 AM - 7:00 PM</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Sunday:</span>
+                        <span className="font-semibold">Closed</span>
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-4 border-t border-white/20">
+                      <p className="text-sm opacity-90">
+                        We're available for emergency signage needs outside business hours.
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">
-                      ✓
+
+                  {/* Nearby Landmarks */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-6">
+                    <h4 className="font-bold text-secondary text-lg mb-4">Nearby Landmarks</h4>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
+                        <span>5 minutes from Thane Railway Station</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
+                        <span>10 minutes from Navi Mumbai Airport</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
+                        <span>15 minutes from Mumbai Central</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-primary rounded-full"></div>
+                        <span>Close to major highways and metro stations</span>
+                      </div>
                     </div>
-                    <span className="text-gray-700">24-Hour Response Time</span>
                   </div>
                 </div>
               </div>
@@ -338,28 +566,49 @@ const Contact = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-primary to-orange-600">
         <div className="container-custom">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
+          <div className="text-center text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Don't wait! Contact us today and let's discuss how we can help 
               enhance your brand visibility with professional signage.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+91797794669" className="btn-primary">
+              <a 
+                href="tel:+917977154669" 
+                className="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-colors shadow-lg hover:shadow-xl"
+              >
                 Call Us Now
               </a>
               <a 
-                href="https://wa.me/91797794669" 
+                href="https://wa.me/917977154669" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="btn-secondary"
+                className="bg-green-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-600 transition-colors shadow-lg hover:shadow-xl"
               >
                 WhatsApp Us
               </a>
+            </div>
+            
+            {/* Additional Contact Options */}
+            <div className="mt-8 pt-8 border-t border-white/20">
+              <p className="text-white/80 mb-4">Or reach us through:</p>
+              <div className="flex flex-wrap justify-center gap-6 text-sm">
+                <a href="mailto:vayucreation2025@gmail.com" className="text-white/80 hover:text-white transition-colors">
+                  📧 Email Us
+                </a>
+                <span className="text-white/40">•</span>
+                <a href="tel:+917208673634" className="text-white/80 hover:text-white transition-colors">
+                  📞 Alternative Number
+                </a>
+                <span className="text-white/40">•</span>
+                <span className="text-white/80">
+                  🕒 Mon-Sat: 9AM-7PM
+                </span>
+              </div>
             </div>
           </div>
         </div>

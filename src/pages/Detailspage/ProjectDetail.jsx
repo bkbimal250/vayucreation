@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { projectsData } from '../../data/projectsData';
-import { FaArrowLeft, FaMapMarkerAlt, FaCalendar, FaTag, FaCheckCircle, FaPhone, FaWhatsapp } from 'react-icons/fa';
-import { useEffect } from 'react';
+import { FaArrowLeft, FaMapMarkerAlt, FaCalendar, FaTag, FaCheckCircle, FaPhone, FaWhatsapp, FaChevronLeft, FaChevronRight, FaTimes, FaExpand } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
 import { useContactModal } from '../../common/ContactModalContext';
 
 const ProjectDetail = () => {
@@ -9,10 +9,43 @@ const ProjectDetail = () => {
   const navigate = useNavigate();
   const { openModal } = useContactModal();
   const project = projectsData.find(p => p.id === parseInt(id));
+  
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
+
+  // Helper functions for image gallery
+  const allImages = project?.projectGallery?.filter(img => img && img.trim() !== '') || [];
+  const currentImage = allImages[selectedImageIndex] || project?.thumbnail || project?.image;
+  
+  const nextImage = () => {
+    setSelectedImageIndex((prev) => (prev + 1) % allImages.length);
+  };
+  
+  const prevImage = () => {
+    setSelectedImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+  };
+  
+  const selectImage = (index) => {
+    setSelectedImageIndex(index);
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (isFullscreen) {
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'Escape') setIsFullscreen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [isFullscreen, allImages.length]);
 
   if (!project) {
     return (
@@ -77,15 +110,78 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* Featured Image */}
+      {/* Project Gallery */}
       <section className="py-0 bg-white">
         <div className="container-custom">
           <div className="relative -mt-16 rounded-2xl overflow-hidden shadow-2xl">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-96 md:h-[600px] object-cover"
-            />
+            {allImages.length > 0 ? (
+              <div className="bg-white">
+                {/* Thumbnail Navigation */}
+                {allImages.length > 1 && (
+                  <div className="flex gap-2 p-4 bg-gray-50 border-b">
+                    {allImages.map((image, index) => (
+                      <button
+                        key={index}
+                        onClick={() => selectImage(index)}
+                        className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                          selectedImageIndex === index
+                            ? 'border-primary shadow-lg'
+                            : 'border-gray-200 hover:border-gray-300'
+                        }`}
+                      >
+                        <img
+                          src={image}
+                          alt={`Project ${index + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                {/* Main Image Display */}
+                <div className="relative">
+                  <img
+                    src={currentImage}
+                    alt={project.title}
+                    className="w-full h-96 md:h-[600px] object-cover"
+                  />
+                  
+                  {/* Navigation Controls */}
+                  {allImages.length > 1 && (
+                    <>
+                      <button
+                        onClick={prevImage}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-colors"
+                      >
+                        <FaChevronLeft />
+                      </button>
+                      <button
+                        onClick={nextImage}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-colors"
+                      >
+                        <FaChevronRight />
+                      </button>
+                      <button
+                        onClick={() => setIsFullscreen(true)}
+                        className="absolute top-4 right-4 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-colors"
+                      >
+                        <FaExpand />
+                      </button>
+                      <div className="absolute bottom-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                        {selectedImageIndex + 1} / {allImages.length}
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <img
+                src={project.thumbnail || project.image}
+                alt={project.title}
+                className="w-full h-96 md:h-[600px] object-cover"
+              />
+            )}
           </div>
         </div>
       </section>
@@ -298,15 +394,15 @@ const ProjectDetail = () => {
                 
                 <div className="space-y-3">
                   <a
-                    href="tel:+91797794669"
+                    href="tel:+917977154669"
                     className="flex items-center gap-2 bg-white text-primary rounded-lg p-3 hover:bg-gray-50 transition-colors text-sm font-semibold"
                   >
                     <FaPhone />
-                    Call: +91 797794669
+                    Call: +91 7977154669
                   </a>
 
                   <a
-                    href="https://wa.me/91797794669"
+                    href="https://wa.me/917977154669"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 bg-green-500 text-white rounded-lg p-3 hover:bg-green-600 transition-colors text-sm font-semibold"
@@ -346,7 +442,7 @@ const ProjectDetail = () => {
                 >
                   <div className="relative h-56 overflow-hidden">
                     <img
-                      src={relatedProject.image}
+                      src={relatedProject.thumbnail || relatedProject.image}
                       alt={relatedProject.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
@@ -396,6 +492,46 @@ const ProjectDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* Fullscreen Modal */}
+      {isFullscreen && (
+        <div className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center">
+          <button
+            onClick={() => setIsFullscreen(false)}
+            className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300 transition-colors"
+          >
+            <FaTimes />
+          </button>
+          
+          <div className="relative max-w-7xl max-h-full p-8">
+            <img
+              src={currentImage}
+              alt={project.title}
+              className="max-w-full max-h-full object-contain"
+            />
+            
+            {allImages.length > 1 && (
+              <>
+                <button
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 text-white p-4 rounded-full hover:bg-white/30 transition-colors"
+                >
+                  <FaChevronLeft />
+                </button>
+                <button
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 text-white p-4 rounded-full hover:bg-white/30 transition-colors"
+                >
+                  <FaChevronRight />
+                </button>
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/20 text-white px-4 py-2 rounded-full">
+                  {selectedImageIndex + 1} / {allImages.length}
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

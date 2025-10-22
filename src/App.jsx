@@ -1,4 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { ContactModalProvider } from './common/ContactModalContext';
 import OpenModelContact from './common/OpenModelContact';
 import Header from './common/Header';
@@ -15,6 +18,16 @@ import ProjectDetail from './pages/Detailspage/ProjectDetail';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false,
+      offset: 100,
+    });
+  }, []);
+
   return (
     <Router>
       <ContactModalProvider>

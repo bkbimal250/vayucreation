@@ -6,10 +6,12 @@ const ProjectCard = ({ project }) => {
     <Link
       to={`/our-work/${project.id}`}
       className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group block"
+      data-aos="fade-up"
+      data-aos-delay="200"
     >
       <div className="relative overflow-hidden h-56 md:h-64">
         <img
-          src={project.image}
+          src={project.thumbnail || project.image}
           alt={project.title}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
