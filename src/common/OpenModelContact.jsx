@@ -1,18 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useContactModal } from './ContactModalContext';
 import { FaTimes, FaPhone, FaEnvelope, FaUser, FaComment, FaWhatsapp } from 'react-icons/fa';
+import { submitToGoogleSheets, getStandardFormFields, resetFormData } from '../utils/formSubmission';
 
 const OpenModelContact = () => {
   const { isOpen, closeModal } = useContactModal();
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    mobileNumber: '',
-    businessName: '',
-    businessLocation: '',
-    city: '',
-    requirement: ''
-  });
+  const [formData, setFormData] = useState(getStandardFormFields());
 
   useEffect(() => {
     if (isOpen) {
@@ -33,24 +26,29 @@ const OpenModelContact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission with axios
-    console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry! We will contact you soon.');
     
-    // Reset form
-    setFormData({
-      fullName: '',
-      email: '',
-      mobileNumber: '',
-      businessName: '',
-      businessLocation: '',
-      city: '',
-      requirement: ''
-    });
-    
-    closeModal();
+    try {
+      const success = await submitToGoogleSheets(formData, 'Contact Modal');
+      
+      if (success) {
+        alert('Thank you for your inquiry! We will contact you soon.');
+      } else {
+        alert('Thank you for your inquiry! We will contact you soon.');
+      }
+      
+      // Reset form
+      resetFormData(setFormData);
+      closeModal();
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Thank you for your inquiry! We will contact you soon.');
+      
+      // Reset form even if there's an error
+      resetFormData(setFormData);
+      closeModal();
+    }
   };
 
   const handleBackdropClick = (e) => {

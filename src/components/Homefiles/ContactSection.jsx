@@ -1,14 +1,9 @@
 import { useState } from 'react';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaUser, FaComment } from 'react-icons/fa';
+import { submitToGoogleSheets, getStandardFormFields, resetFormData } from '../../utils/formSubmission';
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState(getStandardFormFields());
 
   const handleChange = (e) => {
     setFormData({
@@ -17,18 +12,27 @@ const ContactSection = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission with axios (placeholder)
-    console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry! We will contact you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
+    
+    try {
+      const success = await submitToGoogleSheets(formData, 'Contact Section');
+      
+      if (success) {
+        alert('Thank you for your inquiry! We will contact you soon.');
+      } else {
+        alert('Thank you for your inquiry! We will contact you soon.');
+      }
+      
+      // Reset form
+      resetFormData(setFormData);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Thank you for your inquiry! We will contact you soon.');
+      
+      // Reset form even if there's an error
+      resetFormData(setFormData);
+    }
   };
 
   return (
@@ -50,97 +54,137 @@ const ContactSection = () => {
           {/* Contact Form */}
           <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
             <h3 className="text-2xl font-bold text-secondary mb-6">Send us a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
-                  placeholder="Enter your name"
-                />
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Form Fields in 2 columns */}
+              <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address *
+                  <label htmlFor="section-fullName" className="block text-sm font-semibold text-gray-700 mb-1">
+                    Enter your full name *
+                  </label>
+                  <div className="relative">
+                    <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                    <input
+                      type="text"
+                      id="section-fullName"
+                      name="fullName"
+                      required
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      className="w-full pl-10 pr-3 py-2 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="section-email" className="block text-sm font-semibold text-gray-700 mb-1">
+                    Enter your Email *
+                  </label>
+                  <div className="relative">
+                    <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                    <input
+                      type="email"
+                      id="section-email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full pl-10 pr-3 py-2 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                      placeholder="Enter your Email"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="section-mobileNumber" className="block text-sm font-semibold text-gray-700 mb-1">
+                    Enter your mobile number *
+                  </label>
+                  <div className="relative">
+                    <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                    <input
+                      type="tel"
+                      id="section-mobileNumber"
+                      name="mobileNumber"
+                      required
+                      value={formData.mobileNumber}
+                      onChange={handleChange}
+                      className="w-full pl-10 pr-3 py-2 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                      placeholder="Enter your mobile number"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="section-businessName" className="block text-sm font-semibold text-gray-700 mb-1">
+                    Business Name *
                   </label>
                   <input
-                    type="email"
-                    id="email"
-                    name="email"
+                    type="text"
+                    id="section-businessName"
+                    name="businessName"
                     required
-                    value={formData.email}
+                    value={formData.businessName}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
-                    placeholder="your@email.com"
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                    placeholder="Business Name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number *
+                  <label htmlFor="section-businessLocation" className="block text-sm font-semibold text-gray-700 mb-1">
+                    Business location *
                   </label>
                   <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
+                    type="text"
+                    id="section-businessLocation"
+                    name="businessLocation"
                     required
-                    value={formData.phone}
+                    value={formData.businessLocation}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
-                    placeholder="+91 7977154669"
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                    placeholder="Business location"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="section-city" className="block text-sm font-semibold text-gray-700 mb-1">
+                    City *
+                  </label>
+                  <input
+                    type="text"
+                    id="section-city"
+                    name="city"
+                    required
+                    value={formData.city}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                    placeholder="City"
                   />
                 </div>
               </div>
 
+              {/* Requirement field - spans full width */}
               <div>
-                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                  Service Interested In
+                <label htmlFor="section-requirement" className="block text-sm font-semibold text-gray-700 mb-1">
+                  Requirement *
                 </label>
-                <select
-                  id="service"
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
-                >
-                  <option value="">Select a service</option>
-                  <option value="3d-signage">3D Signage</option>
-                  <option value="2d-signage">2D Signage</option>
-                  <option value="led-displays">LED Displays</option>
-                  <option value="event-signage">Event Signage</option>
-                  <option value="billboard">Bill Board</option>
-                  <option value="neon-signage">Neon Signage</option>
-                  <option value="other">Other</option>
-                </select>
+                <div className="relative">
+                  <FaComment className="absolute left-3 top-3 text-gray-400" />
+                  <textarea
+                    id="section-requirement"
+                    name="requirement"
+                    required
+                    value={formData.requirement}
+                    onChange={handleChange}
+                    rows="3"
+                    className="w-full pl-10 pr-3 py-2 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition resize-none"
+                    placeholder="Tell us about your requirement..."
+                  ></textarea>
+                </div>
               </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Your Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows="5"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition resize-none"
-                  placeholder="Tell us about your project..."
-                ></textarea>
-              </div>
-
-              <button type="submit" className="btn-primary w-full">
-                Send Message
+              <button type="submit" className="btn-primary w-full text-lg py-3">
+                Submit
               </button>
             </form>
           </div>

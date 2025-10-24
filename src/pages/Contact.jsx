@@ -1,16 +1,9 @@
 import { useState } from 'react';
 import { FaUser, FaEnvelope, FaPhone, FaComment, FaMapMarkerAlt, FaClock, FaWhatsapp } from 'react-icons/fa';
+import { submitToGoogleSheets, getStandardFormFields, resetFormData } from '../utils/formSubmission';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    mobileNumber: '',
-    businessName: '',
-    businessLocation: '',
-    city: '',
-    requirement: ''
-  });
+  const [formData, setFormData] = useState(getStandardFormFields());
 
   const handleChange = (e) => {
     setFormData({
@@ -19,22 +12,27 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission with axios
-    console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry! We will contact you soon.');
     
-    // Reset form
-    setFormData({
-      fullName: '',
-      email: '',
-      mobileNumber: '',
-      businessName: '',
-      businessLocation: '',
-      city: '',
-      requirement: ''
-    });
+    try {
+      const success = await submitToGoogleSheets(formData, 'Contact Page');
+      
+      if (success) {
+        alert('Thank you for your inquiry! We will contact you soon.');
+      } else {
+        alert('Thank you for your inquiry! We will contact you soon.');
+      }
+      
+      // Reset form
+      resetFormData(setFormData);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Thank you for your inquiry! We will contact you soon.');
+      
+      // Reset form even if there's an error
+      resetFormData(setFormData);
+    }
   };
 
   return (
@@ -296,126 +294,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Information Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-              Contact Information
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Multiple ways to reach us. Choose the most convenient method for you.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Phone Contact */}
-            <div className="text-center p-6 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl border border-primary/20 hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <FaPhone className="text-primary text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold text-secondary mb-2">Call Us</h3>
-              <p className="text-gray-600 mb-4">Speak directly with our team</p>
-              <div className="space-y-2">
-                <a href="tel:+917977154669" className="block text-primary hover:text-orange-600 transition-colors font-semibold">
-                  +91 7977154669
-                </a>
-                <a href="tel:+917208673634" className="block text-primary hover:text-orange-600 transition-colors font-semibold">
-                  +91 7208673634
-                </a>
-              </div>
-            </div>
-
-            {/* Email Contact */}
-            <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200 hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                <FaEnvelope className="text-blue-600 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold text-secondary mb-2">Email Us</h3>
-              <p className="text-gray-600 mb-4">Send us your requirements</p>
-              <div className="space-y-2">
-                <a href="mailto:vayucreation2025@gmail.com" className="block text-blue-600 hover:text-blue-700 transition-colors font-semibold text-sm">
-                  vayucreation2025@gmail.com
-                </a>
-                <a href="mailto:contact@vardansigns.com" className="block text-blue-600 hover:text-blue-700 transition-colors font-semibold text-sm">
-                  contact@vardansigns.com
-                </a>
-              </div>
-            </div>
-
-            {/* WhatsApp Contact */}
-            <div className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl border border-green-200 hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-                <FaWhatsapp className="text-green-600 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold text-secondary mb-2">WhatsApp</h3>
-              <p className="text-gray-600 mb-4">Quick chat support</p>
-              <a 
-                href="https://wa.me/917977154669" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-block text-green-600 hover:text-green-700 transition-colors font-semibold"
-              >
-                Chat Now
-              </a>
-            </div>
-
-            {/* Visit Us */}
-            <div className="text-center p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-4">
-                <FaMapMarkerAlt className="text-gray-600 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold text-secondary mb-2">Visit Us</h3>
-              <p className="text-gray-600 mb-4">Come to our office</p>
-              <p className="text-sm text-gray-600">
-                Navi Mumbai - Thane<br />
-                Mumbai - 400705
-              </p>
-            </div>
-          </div>
-
-          {/* Business Hours */}
-          <div className="mt-16 bg-gradient-to-br from-secondary to-gray-800 rounded-2xl p-8 text-white">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold mb-2">Business Hours</h3>
-              <p className="text-gray-300">We're here to help you during these hours</p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  <FaClock className="text-2xl" />
-                  <h4 className="text-xl font-bold">Regular Hours</h4>
-                </div>
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span>Monday - Saturday:</span>
-                    <span className="font-semibold">9:00 AM - 7:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Sunday:</span>
-                    <span className="font-semibold">Closed</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  <FaPhone className="text-2xl" />
-                  <h4 className="text-xl font-bold">Emergency Support</h4>
-                </div>
-                <p className="text-gray-300 mb-2">
-                  Available for urgent signage needs
-                </p>
-                <a href="tel:+917977154669" className="text-primary hover:text-orange-400 transition-colors font-semibold">
-                  +91 7977154669
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Map Section */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container-custom">
@@ -513,51 +391,6 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Business Hours */}
-                  <div className="bg-gradient-to-br from-secondary to-gray-800 text-white rounded-xl p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <FaClock className="text-2xl" />
-                      <h4 className="text-xl font-bold">Business Hours</h4>
-                    </div>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span>Monday - Saturday:</span>
-                        <span className="font-semibold">9:00 AM - 7:00 PM</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Sunday:</span>
-                        <span className="font-semibold">Closed</span>
-                      </div>
-                    </div>
-                    <div className="mt-4 pt-4 border-t border-white/20">
-                      <p className="text-sm opacity-90">
-                        We're available for emergency signage needs outside business hours.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Nearby Landmarks */}
-                  <div className="bg-white border border-gray-200 rounded-xl p-6">
-                    <h4 className="font-bold text-secondary text-lg mb-4">Nearby Landmarks</h4>
-                    <div className="space-y-2 text-sm text-gray-600">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        <span>5 minutes from Thane Railway Station</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        <span>10 minutes from Navi Mumbai Airport</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        <span>15 minutes from Mumbai Central</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        <span>Close to major highways and metro stations</span>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
